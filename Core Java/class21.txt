@@ -1,0 +1,677 @@
+Pyramid loop patterns
+=====================
+1)
+      1
+    1 2 1
+  1 2 3 2 1
+1 2 3 4 3 2 1
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//left side elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+2)
+1 2 3 4 3 2 1
+  1 2 3 2 1 
+    1 2 1
+      1
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//left side elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+3)
+
+      *
+    * * *
+  * * * * *
+* * * * * * * 
+  * * * * *
+    * * * 
+      * 
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//ascending 
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//left side elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println();
+		}
+
+		//descending 
+		//rows
+		for(int i=3;i>=1;i--)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//left side elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+Q) Write a java program to display below loop pattern?
+
+1             1
+1 2         2 1 
+1 2 3     3 2 1
+1 2 3 4 4 3 2 1
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		int rows=4;
+		//rows
+		for(int i=1;i<=rows;i++)
+		{
+			//left side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+
+			//space
+			for(int j=1;j<=(rows-i)*2;j++)
+			{
+				System.out.print("  ");
+			}
+
+			//right side elements
+			for(int j=i;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+Q) Write a java program to display pascal triangle?
+
+	1
+       1 1 
+      1 2 1 
+     1 3 3 1
+    1 4 6 4 1
+
+ex:
+----
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=0;i<5;i++)
+		{
+			//spaces
+			for(int j=1;j<5-i;j++)
+			{
+				System.out.print(" ");
+			}
+
+			int number=1;
+			for(int k=0;k<=i;k++)
+			{
+				System.out.print(number+" ");
+				number = number * (i-k)/(k+1);
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+Q) Write a java program to display below loop pattern?
+	    
+	    *	
+	    *	
+	* * * * * 
+	    *
+            *	
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=5;i++)
+		{
+			//cols
+			for(int j=1;j<=5;j++)
+			{
+				if(i==3 || j==3)
+					System.out.print("* ");
+				else
+					System.out.print("  ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+4) Jump Statement
+==================
+It is used to jump from one section of code to another section.
+
+We have two types of jump statements.
+
+i) break stmt
+
+ii) continue stmt 
+
+i) break stmt
+-------------
+A break statement is used to break the execution of loops and switch case.
+
+For conditional statement we can use if condition.
+
+syntax:
+	break stmt;
+
+ex:1
+----
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		break;
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	C.T.E : break outside switch or loop
+
+
+
+ex:2
+----
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(true)
+		{
+			break;
+		}
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	C.T.E : break outside switch or loop
+
+ex:3
+----
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				break;
+			}
+			System.out.print(i+" "); // 1 2 3 4 
+		}
+	}
+}
+
+
+ii) continue stmt
+-------------------
+It is used to continue the execution of loops.
+
+For conditional statements we can use if condition.
+
+syntax:
+-------
+	continue stmt 
+
+ex:1
+----
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		continue;
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	C.T.E  : continue outside of loop
+
+
+ex:2
+----
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(true)
+		{
+			continue;
+		}
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	C.T.E : continue outside of loop
+
+ex:3
+----
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				continue;
+			}
+			System.out.print(i+" "); // 1 2 3 4 6 7 8 9 10
+		}
+	}
+}
+
+ORSCHAPS company
+================
+Q)
+Write a java program to calculate costs based on user input. The program
+should prompt users to enter the total weight of items(in kilograms) and the shipping destination (domestic or international). for demostic orders, the program should charge Rs.500 for weights upto 5 kg and Rs.100 per additional kg. for international orders, it should charge Rs.1000 for weights upto 5 kg , Rs.200 per additional kg , and a Rs.500 surcharge for weights exceeding 10 kg. print calculated shipping cost.
+
+Input:
+	Enter total weight of items(kgs) : 11 
+	Enter shipping destination : domestic
+	
+	<=5kg --> Rs. 500
+	>5kg --> per kg --> Rs. 100
+
+
+	Enter total weight of items(kgs) : 11   (1000 + 1200 + 500)
+	Enter shipping destination : international
+
+	<=5kg --> Rs. 1000
+	>5kg --> per kg --> Rs. 200 
+	>10kg --> 500
+
+import java.util.Scanner;
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the total weight of item (kg) :");
+		int weight=sc.nextInt();
+		
+		System.out.println("Enter the destination location :");
+		String destination=sc.next(); // domestic
+
+		if(destination.equals("domestic"))
+		{
+			if(weight<=5)
+				System.out.println(500);
+			else
+				System.out.println(500 + (weight-5) * 100);
+		}
+		else
+		{
+			if(weight<=5)
+				System.out.println(1000);
+			else if(weight<=10)
+				System.out.println(1000 + (weight-5) * 200);
+			else if(weight>10)
+				System.out.println(1000 + (weight-5) * 200 + 500);
+		}
+
+	}
+}
+
+
+
+Arrays
+======
+Array is a collection of homogeneous data elements.
+
+The main advantages of arrays are 
+
+1) We can represent multiple elements using single variable name.
+   ex:
+	int[] arr={10,20,30};
+
+2) Performance point of view arrays are recommanded to use.
+
+The main disadvantages of arrays are 
+
+1) Arrays are fixed in size.Once if we create an array there is no chance of increasing or 
+   decreasing the size of an array.
+
+2) To use arrays concept in advanced we should know what is the size of an array which is always 
+   not possible.
+
+In java, arrays are classified into three types.
+
+1) Single Dimensional Array 
+
+2) Double Dimensional Array
+
+3) Multi Dimensional Array 
+
+
+Array Declaration
+-----------------
+At the time of array declaration we should not specify array size.
+
+					Arrays
+	|---------------------------------|-----------------------------------|
+Single Dimensional Array	Double Dimensional Array		Multi Dimensional Array
+
+int[] arr;			int[][] arr;				int[][][] arr;
+int  []arr;			int  [][]arr;				int [][][]arr;
+int  arr[];			int  arr[][];				int arr[][][];
+				int[] []arr;				int[][] []arr;
+				int[] arr[];				int[][]  arr[];
+				int  []arr[];				int[]  [][]arr;
+									int[]  arr[][];
+									int[]  []arr[];
+									int  [][]arr[];
+									int  []arr[][];
+
+Array Creation
+===============
+In java, every array consider as an object.Hence we will use new operator to create an array.
+
+Diagram: class21.1
+
+Rules to construct an array
+----------------------------
+Rule1:
+-------
+	At the time of array creation compulsary we need to specify array size.
+	ex:
+		int[] arr=new int[3]; 
+		int[] arr=new int[]; // C.T.E Array diminsion missing 
+
+Rule2:
+-----
+	It is legal to have an array size with zero.
+	ex:
+		int[] arr=new int[0];
+		System.out.println(arr.length); //0
+
+Rule3:
+-----
+	We can't give negative number as an array size otherwiser we will get runtime exception 
+	called NegativeArraySizeException.
+	ex:
+		
+		int[] arr=new int[-3];// R.E NegativeArraySizeException
+
+Rule4:
+------
+	The allowed datatype for an array size is byte,short,int and char.
+	If we take other datatype then we will get compile time error.
+	ex:
+		byte b=10;
+		int[] arr=new int[b];
+
+		int[] arr=new int['a'];
+
+		int[] arr=new int[10.5d]; // invalid 
+
+Rule5:
+------
+	The maximum length we can take for an array size is maximum length of integer.
+	ex:
+		int[] arr=new int[2147483647];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

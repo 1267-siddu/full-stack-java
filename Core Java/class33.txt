@@ -1,0 +1,370 @@
+Enum
+=====
+Enum concept introduced in 1.5v.
+
+Enum is a group of named constants.
+
+Using enum we can create our own datatype called enumerated datatype.
+
+When compare to old language enum , java enum is more powerful.
+
+syntax:
+------
+	enum   <type_name>
+	{
+		value1,value2,...,valueN
+	}
+
+ex:
+---
+	enum  Months
+	{
+		JAN,FEB,MAR
+	}
+
+
+Internal implementation of enum
+--------------------------------
+Every enum internally consider as class concept and it is extended with java.lang.Enum class.
+
+Every enum constant is a reference variable of enum type.
+
+ex:
+
+
+enum  Months			public final class Months extends java.lang.Enum 
+{				{
+	JAN,FEB,MAR	==>		public static final Months JAN=new Months();
+}					public static final Months FEB=new Months();
+					public static final Months MAR=new Months();
+				}
+
+
+Declaration and Usage of enum
+------------------------------
+enum Months
+{
+	JAN,FEB,MAR
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Months m=Months.JAN;
+		System.out.println(m); // JAN
+	}
+}
+
+
+A switch case allowed enum .
+
+ex:
+--
+enum Months
+{
+	JAN,FEB,MAR
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Months m=Months.FEB;
+		switch(m)
+		{
+			case JAN: System.out.println("January"); break;
+			case FEB: System.out.println("Febrary"); break;
+			case MAR: System.out.println("March"); break;
+		}
+	}
+}
+
+java.lang.Enum class
+---------------------
+The power to enum will be inherited from java.lang.Enum class.
+
+It contains following two methods.
+
+1) values()
+-----------
+	It will return group of constants from enum.
+
+2) ordinal() 
+---------
+	It will return ordinal number.
+
+ex:
+
+enum Week
+{
+	MON,TUE,WED,THU,FRI,SAT,SUN	
+}
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Week[] w=Week.values();
+
+		for(Week w1:w)
+		{
+			System.out.println(w1+"------------"+w1.ordinal());
+		}
+	}
+}
+
+When compare to old language enum, java enum is more powerful because in addition to constants we can declare variable, method and constructor.
+
+ex:
+---
+enum Cloth
+{
+	SILK,COTTON,KHADI;
+
+	Cloth()
+	{
+		System.out.println("constructor");
+	}
+}
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Cloth c=Cloth.SILK;
+	}
+}
+
+ex:
+---
+enum Cloth
+{
+	SILK,COTTON,KHADI;
+
+	static int i=10;
+
+	public static void main(String[] args)
+	{
+		System.out.println(i);
+	}
+}
+
+
+Singleton class
+===============
+A class which allows us to create only one object is called singleton class.
+
+It is one of the design pattern which allows us to create only one object for the class.
+
+If we call any method using class name and that method returns same class object is called singleton class.
+ex:
+	Calendar
+	LocalDate
+	LocalTime 
+	and etc.
+
+To create a singleton class we required private constructor and factory method.
+
+ex:
+---
+class Singleton
+{
+	static Singleton singleton=null;
+
+	//private constructor
+	private Singleton()
+	{
+	}
+
+	//factory method 
+	public static Singleton getInstance()
+	{
+		if(singleton==null)
+		{
+			singleton=new Singleton();
+		}
+		return singleton;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Singleton s1=Singleton.getInstance();
+		System.out.println(s1.hashCode());
+
+		Singleton s2=Singleton.getInstance();
+		System.out.println(s2.hashCode());
+	}
+}
+
+Inner classes
+=============
+Sometimes we will declare a class inside another class such concept is called inner class.
+
+ex:
+	class Outer_class
+	{
+		class Inner_class
+		{
+			-
+			- //code to be declare
+			-
+		}
+	}
+
+Inner classes introduced as a part of event handling to remove GUI bugs.
+
+But due to powerful features and benefits of inner classes, programmers started to use inner classes in regular programming.
+
+According to Java 8, Inner class does not allow static members.
+
+
+Accessing inner class data from static area of outer class
+----------------------------------------------------------
+class Outer
+{
+	class Inner 
+	{
+		public void m1()
+		{
+			System.out.println("M1-Method");
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		Outer.Inner i=new Outer().new Inner();
+		i.m1();
+	}
+}
+Note:
+	If we compile above program  then two .class files will be generated i.e 
+	Outer.class and Outer$Inner.class.
+
+
+ex:
+---
+class Outer
+{
+	class Inner 
+	{
+		public void m1()
+		{
+			System.out.println("M1-Method");
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		new Outer().new Inner().m1();
+	}
+}
+
+
+Accessing inner class data from non-static area of outer class
+---------------------------------------------------------------
+class Outer
+{
+	class Inner 
+	{
+		public void m1()
+		{
+			System.out.println("M1-Method");
+		}
+	}
+
+	public void m2()
+	{
+		Inner i=new Inner();
+		i.m1();
+	}
+
+	public static void main(String[] args)
+	{
+		Outer o=new Outer();
+		o.m2();
+	}
+}
+
+Types of objects
+=================
+We have two types of objects in java.
+
+1) Immutable object 
+
+2) Mutable object 
+
+1) Immutable object 
+--------------------
+After object creation if we perform any changes then for every change a new object will be created  such type of object is called immutable object.
+ex:
+	String and Wrapper classes
+
+2) Mutable object 
+----------------
+After object creation if we perform any changes then all the changes will reflect to single object
+such type of object is called mutable object.
+ex:
+	StringBuffer and StringBuilder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

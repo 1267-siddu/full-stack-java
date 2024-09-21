@@ -1,0 +1,441 @@
+String
+======
+It is a collection of characters which is enclosed in a double quotation.
+
+A String is a immutable object.
+
+
+case1:
+------
+Once if we create a String object we can't perform any changes.For every change a new object 
+will be created such behaviour is called immutability of an object.
+
+Diagram: class34.1
+
+
+case2:
+------
+What is the difference between == and .equals() method?
+
+==
+----
+It is a comparision operator which returns boolean value. 
+
+It is used to reference comparision or address comparision.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String s1=new String("bhaskar");
+
+		String s2=new String("bhaskar");
+
+		System.out.println(s1==s2); //false 
+	}
+}
+	
+.equals()
+----------
+It is a method present in String class which returns boolean value.
+
+It is used for content comparision.
+
+It is a case sensitive.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String s1=new String("bhaskar");
+
+		String s2=new String("bhaskar");
+
+		System.out.println(s1.equals(s2)); // true 
+	}
+}
+
+case3:
+------
+Whenever we create String object.Two objects will be created internally.One is on heap and another is on SCP (String Constant Pool) area.But 's' points to heap area only.
+
+Diagram: class34.2
+
+
+
+Object creations in SCP area is always optional. JVM will check is there any object is created with same content or not.If it is created then JVM simply refers to that object.If it is not created then JVM will create a new object.Hence there is no chance of having duplicates objects in SCP area.
+
+SCP area objects do not have any reference even though garbage collector can't access them.
+
+SCP area objects will destroy automatically whenever JVM shutdowns or terminated.
+
+Diagram: class34.3
+
+
+Interning of String object
+===========================
+With the help of heap object reference if we need corresponding SCP object reference 
+then we need to use intern() method.
+
+Diagram: class34.4
+
+
+
+String important methods
+========================
+
+Q) Write a java program to find out length of the string?
+
+Input:
+	Hello 
+
+output:
+	5
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="Hello";
+		
+		int len=str.length();
+
+		System.out.println(len);
+	}
+}
+
+Q) Write a java program to convert uppercase string to lowercase string?
+
+input:
+	RAJA@GMAIL.COM
+
+output:
+	raja@gmail.com 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="RAJA@GMAIL.COM";
+
+		str=str.toLowerCase();
+
+		System.out.println(str);
+	}
+}
+
+Q) Write a java program to convert lowercase string to uppercase string?
+
+input:
+	ihub
+
+output:
+	IHUB
+
+ex
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ihub";
+
+		str=str.toUpperCase();
+
+		System.out.println(str);
+	}
+}
+
+Q) Write a java program to check both strings are equal or not?
+
+input:
+	bhaskar
+	bhaskar
+output:
+	Both are equals 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str1="bhaskar";
+		String str2="bhaskar";
+		if(str1.equals(str2))
+			System.out.println("Both are equals");
+		else
+			System.out.println("Both are not equals");
+	}
+}
+
+Q) Write a java program to check both strings are equal or not?
+
+input:
+	bhaskar
+	BHASKAR
+output:
+	Both are equals 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str1="bhaskar";
+		String str2="BHASKAR";
+		if(str1.equalsIgnoreCase(str2))
+			System.out.println("Both are equals");
+		else
+			System.out.println("Both are not equals");
+	}
+}
+
+
+Q) Write a java program to return a character based on given index?
+
+input:
+	str = bhaskar
+
+	index = 3
+
+
+output:
+	s
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+
+		int index=3;
+
+		char ch=str.charAt(index);
+
+		System.out.println(ch);
+	}
+}
+
+
+Q) Write a java program to count number of vowels present in string?
+
+input:
+	umbrella
+
+output:
+	3  
+
+ex:
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="umbrella";
+
+		int cnt=0;
+
+		for(int i=0;i<str.length();i++)
+		{
+			if(str.charAt(i)=='a' || str.charAt(i)=='e' ||str.charAt(i)=='i' || str.charAt(i)=='o' || str.charAt(i)=='u')
+			{
+				cnt++;
+			}
+		}
+
+		System.out.println(cnt);
+	}
+}
+
+
+
+Q) Write a java program to display number of upper case letters, lowercase letters, digits,
+words and spaces in a given string?
+
+input:
+	This Is Java Class34
+
+output:
+	uppercase letters : 4
+	lowercase lettesr : 11
+	Digits : 2 
+	words : 4 
+	spaces : 3
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="This Is Java Class34";
+
+		int upper=0,lower=0,digit=0,space=0,word=1;
+
+		for(int i=0;i<str.length();i++)
+		{
+			if(str.charAt(i)>='A' && str.charAt(i)<='Z')
+			{
+				upper++;
+			}
+			else if(str.charAt(i)>='a' && str.charAt(i)<='z')
+			{
+				lower++;
+			}
+			else if(str.charAt(i)>='0' && str.charAt(i)<='9')
+			{
+				digit++;
+			}
+			else if(str.charAt(i)==' ')
+			{
+				space++;
+				word++;
+			}
+		}
+
+		System.out.println("uppercase letters :"+upper);
+		System.out.println("lowercase letters :"+lower);
+		System.out.println("Digits :"+digit);
+		System.out.println("Words :"+word);
+		System.out.println("Spaces :"+space);
+	}
+}
+
+
+Q) Write a java program to return first index of a given character?
+
+input:
+	str = bhaskar 
+
+	ch = 'a'
+
+output:
+	2	
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+		
+		char ch='a';
+
+		int index=str.indexOf(ch);
+		
+		System.out.println(index);
+	}
+}
+
+
+Q) Write a java program to return last index of a given character?
+
+input:
+	str = bhaskar 
+
+	ch = 'a'
+
+output:
+	5
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+		
+		char ch='a';
+
+		int index=str.lastIndexOf(ch);
+		
+		System.out.println(index);
+	}
+}
+
+Q) Write a java program to concatinate two strings?
+
+input:
+	ihub
+	talent
+output:
+	ihubtalent 
+
+ex:
+	
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str1="ihub";
+		String str2="talent";
+
+		String result=str1.concat(str2);
+
+		System.out.println(result);
+	}
+}
+
+
+Q) Write a java program to remove the spaces from given string?
+
+input:
+	I hub Tale nt 
+
+output:
+	IhubTalent 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="I hub Tale nt";
+
+		str=str.replaceAll("\\s","");
+
+		System.out.println(str);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

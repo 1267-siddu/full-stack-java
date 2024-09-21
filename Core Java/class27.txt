@@ -1,0 +1,281 @@
+OOPS
+====
+OOPS stands for Object Oriented Programming System/Structure.
+
+The purpose of OOPS is to deal with real world entities using programming language. 
+
+We have following list of OOPS features.
+
+1) class 
+
+2) object 
+
+3) Abstraction 
+
+4) Encapsulation 
+
+5) Inheritance 
+
+6) Polymorhism 
+
+
+object oriented technology
+-------------------------
+A technology which provides very good environment to represent our data in the form objects is called object oriented technology.
+
+
+
+class
+======
+A class is a blue print of an object.
+
+A class is a collection of variables and methods.
+
+A class is a logical entity.
+
+We can declare a class as follow.
+
+syntax:
+	optional 
+	|
+	modifier  class   class_name <extends> Parent_classname
+			   	     <implements> Interface_name
+	{
+		-
+		- //variables
+		- // methods 
+		-
+	}
+
+A class will accept following modifiers.
+ex:
+	default
+	public
+	private 
+	protected
+
+
+Realtime example
+----------------
+To construct a building we required a design and that design is a class.
+
+
+Q) What is difference between default class and public class?
+
+default class
+-------------
+If we declare any class as default then we can access that class within the package.
+
+ex:
+	class A 
+	{
+		-
+		- //variables and methods 
+		-	
+	}
+
+public class
+------------
+If we declare any class as public then we can access that class within the package and outside the package.
+
+ex:
+	public class A 
+	{
+		-
+		- //variables and methods 
+		-
+	}
+
+
+Q) What is final class?
+
+If we declare any class as final then creating child class is not possible.
+
+ex:
+	final class A 
+	{
+		-
+	}
+	class B extends A ---> invalid 
+	{
+		-
+	}
+
+Q) What is abstract class?
+
+If we declare any class as abstract then creating object for that class is not possible.
+
+ex:
+	abstract class A
+	{
+		-
+	}
+	A a=new A(); --> invalid 
+
+
+object
+=======
+It is a outcome of a blue print.
+
+It is a instance of a class.
+
+Here instance means allocating memory for our data members.
+
+It is a physical entity.
+
+It is a collection of properties and behaviours.
+
+We can create object as follow.
+
+ex:
+			operator 
+			   |
+	Test    t     =    new      Test();
+	|       |			|
+    classname  reference variable   constructor
+
+Memory space will be allocated when we create an object. 
+
+It is possible to create more then on object in a single class.
+
+
+Realtime example
+----------------
+				Dog (object)
+				|
+		-----------------------------------------
+		|					|
+	properties					behaviours
+	
+	> Height 					> Eating 
+	> Age						> Sleeping 
+	> Color						> Barking 
+	> Weight 					> Running 
+	> Width 					and etc.
+	and etc.
+
+ex:
+---
+public class Test  
+{
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		Test t2=new Test();
+		Test t3=new Test();
+
+		System.out.println(t1.hashCode());
+		System.out.println(t2.hashCode());
+		System.out.println(t3.hashCode());
+
+		System.out.println(t1); //Test@Hexadecimalno
+		System.out.println(t2.toString());
+		System.out.println(t3.toString());
+	}
+}
+
+
+Q) What is hash code in java?
+
+For every object JVM will create a unique identification number i.e hash code.
+
+In order to read hash code of an object we will use hashCode() method.
+
+Diagram: class27.1
+
+
+toString() 
+==========
+It is a method present in Object class.
+
+Whenever we are trying to display any object reference. Directly or indirectly toString() method will be executed.
+
+
+
+
+Q) Which class consider as parent class in java?
+
+Object class consider as parent class in java.
+
+Object class present in java.lang package.
+
+Object class contains following methods.
+
+ex:
+	cmd>javap   java.lang.Object
+
+
+	ex:
+		hashCode()
+		toString()
+		notify()
+		notifyAll()
+		wait()
+		getClass()
+		and etc.
+		
+
+
+Data Hiding
+============
+Data hiding is used to provide security to the program by hiding object data.
+
+Using private modifier we can implements data hiding concept.
+
+Data hiding is used to prevent unauthorized data access.
+
+ex:
+
+class Account 
+{
+	//instance variable
+	private double balance=20000;
+}
+class Customer 
+{
+	public static void main(String[] args)
+	{
+		Account a=new Account();
+		System.out.println(a.balance);
+	}
+}
+C.T.E : balance has private access in Account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

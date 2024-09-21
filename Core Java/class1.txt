@@ -1,0 +1,114 @@
+Modules In Java
+===============
+We have three modules in java.
+
+					JAVA
+	|---------------------------------|-------------------------------|
+	JSE/J2SE			JEE/J2EE			JME/J2ME 
+(Java Standard Edition)		(Java Enterprise Edition)	 (Java Micro Edition)	
+
+> Standalone App 		> Distributed App		> Mobile App
+
+> Desktop App 			> Enterprise App 
+
+> Two-tier App 			> ERP App 
+
+				> N-Tier App 
+
+
+> Standalone App
+----------------
+A normal java program which contains main method is called standlone application.
+ex:
+	class  Test
+	{
+		public static void main(String[] args)
+		{
+			-
+			- //code to be execute 
+			-			
+		}
+	}
+
+
+> Desktop App
+-------------
+It is a software application specially designed to perform perticular task.
+
+ex:
+	Control Panel 
+	Recycle Bin 
+	VLC Media Player 
+
+
+> Two-tier App 
+----------------
+Having more then one tier is called two tier application.
+
+Diagram: class1.1
+Diagram: class1.2
+
+
+> Distributed App
+------------------
+Diagram: class1.3
+
+In client-server architecture, If multiple clients sending the request to the main server then main server will distribute the request to it's parallel servers to reduce the burdun of main server is called distributed application.
+
+
+> Enterprise App
+-----------------
+An application which deals with large business complex logic with the help of middleware services is called enterprise application.
+
+Here middleware services means authentication, autherization, malware production, security and etc.
+
+ex:
+	Facebook
+	Online shopping websites 
+	and etc
+
+> ERP App 
+------------
+ERP stands for Enterprise Resource Planning.
+
+ERP is used to maintain the data in enterprise.
+
+Diagram: class1.4
+
+
+> N-Tier App
+-------------
+Having more then two tiers is called N-tier application.
+
+Diagram: class1.5
+
+
+> Mobile App
+-----------
+It is a software application or a program which is developed for wireless network devices like phone, cell , tab , cellular and etc rather then laptop's and pc's.
+ex:
+	GooglePay
+	PhonePay
+	PubG 
+	and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

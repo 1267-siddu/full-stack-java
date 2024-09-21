@@ -1,0 +1,357 @@
+Q) Write a java program to remove special characters from a given string?
+
+input:
+	I@hub_Ta$le#nt
+
+output:
+	IhubTalent
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="I@hub_Ta$le#nt";
+
+		str=str.replaceAll("[^A-Za-z0-9]","");
+
+		System.out.println(str);
+	}
+}
+
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	ihub27
+	talent25
+
+output:
+	ihubtalent52
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str1="ihub27";
+		String str2="talent25";
+
+		String word1=str1.replaceAll("[^A-Za-z]","");
+		int num1=Integer.parseInt(str1.replaceAll("[^0-9]",""));
+
+		String word2=str2.replaceAll("[^A-Za-z]","");	
+		int num2=Integer.parseInt(str2.replaceAll("[^0-9]",""));
+
+		String word=word1+word2;
+		int num=num1+num2;
+
+		System.out.println(word+num);
+
+	}
+}
+
+
+Q) Write a java program to return a sub string from a given string?
+
+input:
+	str = bhaskar
+	index = 4
+output:
+	kar 
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="bhaskar";
+		
+		int index=4;
+
+		String result=str.substring(index);
+
+		System.out.println(result);
+	}
+}
+
+
+Q) Write a java program to return sub string of a given string?
+
+input:
+	ihubtalentinjava
+
+output:
+	talent 
+
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="ihubtalentinjava";
+
+		String result=str.substring(4,10);
+		
+		System.out.println(result);
+	}
+}
+
+
+Q) Write a java program to insert a given string based on the index?
+
+input:
+	str = ihubtalent
+	index = 4
+	word = for 
+
+output:
+	ihubfortalent
+
+ex:
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="ihubtalent";
+
+		int index =4;
+
+		String word="for";
+
+		String str1=str.substring(0,index);
+		
+		String str2=str.substring(index,str.length());
+
+		String result=str1+word+str2;
+
+		System.out.println(result);
+
+	}
+}
+
+Q) Write a java program to display the string in a reverse order ?
+
+input:
+	hello 
+
+output:
+	olleh 
+
+ex:
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="hello";
+
+		char[] carr=str.toCharArray();	 // h    e     l    l    o
+
+		String rev="";
+
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+		System.out.println(rev);
+
+	}
+}
+
+Q) Write a java program to check given string is palindrome or not?
+
+input:
+	racar 
+
+output:
+	It is a palindrome string 
+
+ex:
+
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="racar";
+
+		char[] carr=str.toCharArray();	 // r a c a r  
+
+		String rev="";
+
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+		
+
+		if(str.equals(rev))
+			System.out.println("It is a palindrome string");
+		else
+			System.out.println("It is not a palindrome string");
+
+	}
+}
+
+Q) Write a java program to display reverse of a sentence?
+
+input:
+	This is java class 
+
+output:
+	class java is This 
+
+ex:
+
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="This is java class";
+
+		String[] sarr=str.split(" "); // This      is      java      class
+
+
+		String rev="";
+
+		for(int i=sarr.length-1;i>=0;i--)
+		{
+			rev+=sarr[i]+" ";
+		}
+		System.out.println(rev);
+	}
+}
+
+Q) Write a java program to display reverse of a word in a given string?
+
+input:
+	This is java class
+
+output:
+	sihT si avaj ssalc 
+
+ex:
+
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="This is java class";
+
+		String[] sarr=str.split(" ");
+
+		String rev="";
+		
+		//for each loop
+		for(String s:sarr)
+		{
+			char[] carr=s.toCharArray(); // T   h    i   s 
+
+			for(int i=carr.length-1;i>=0;i--)
+			{
+				rev+=carr[i];
+			}
+
+			//add space
+			rev+=" ";
+		}
+
+		System.out.println(rev);
+	}
+}
+
+Q) Write a java program to display the string starting with upper case letter?
+
+input:
+	This is Java class For students
+
+output:
+	This Java For 
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="This is Java class For students";
+
+		String[] sarr=str.split(" ");
+
+		String rev="";
+
+		for(String s:sarr)
+		{
+			if(s.charAt(0)>='A' && s.charAt(0)<='Z')
+			{
+				rev+=s+" ";		
+			}
+		}
+
+		System.out.println(rev);
+
+	}
+}
+
+Q) Write a java program to the string present in odd position ?
+
+input:
+	This is java class for students
+
+output:
+	is class students
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="This is Java class For students";
+
+		String[] sarr=str.split(" ");
+
+		for(int i=0;i<sarr.length;i++)
+		{
+			if(i%2!=0)
+			{
+				System.out.print(sarr[i]+" ");
+			}
+		}
+
+	}
+}
+
+Assignment
+-----------
+Q) Write a java program to display palindrome strings?
+
+input:
+	racar is madam for dad
+
+output:
+	racar   madam  dad 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

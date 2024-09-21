@@ -1,0 +1,260 @@
+Q) Write a java program to display the given string in a below format?
+
+input:
+	A1B2C3D4
+
+output:
+	ABBCCCDDDD
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="A1B2C3D4";
+
+		for(int i=0;i<str.length();i++)
+		{
+			if(Character.isAlphabetic(str.charAt(i)))
+			{
+				System.out.print(str.charAt(i));
+			}
+			else
+			{
+				int k=Character.getNumericValue(str.charAt(i));
+				for(int j=1;j<k;j++)
+				{
+					System.out.print(str.charAt(i-1));
+				}
+			}
+		}
+
+	}
+}
+
+Q) Write a java program to display plaindrome strings ?
+
+input:
+	racar is madam for dad
+
+output:
+	racar  madam  dad 
+
+ex:
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="racar is madam for dad";
+
+		String[] sarr=str.split(" "); // racar   is   madam    for    dad
+
+
+		//for each loop
+		for(String s:sarr)
+		{
+			char[] carr=s.toCharArray(); // r  a   c   a   r 
+
+			String rev="";
+
+			for(int i=carr.length-1;i>=0;i--)
+			{
+				rev+=carr[i];
+			}
+
+			if(s.equals(rev))
+			{
+				System.out.print(s+" ");
+			}
+		}
+	}
+}
+
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	XYZ
+
+output:
+	XY
+	XZ
+	YX
+	YZ
+	ZX
+	ZY 
+
+ex:
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="XYZ";
+
+		for(int i=0;i<str.length();i++)
+		{
+			for(int j=0;j<str.length();j++)
+			{
+				if(i!=j)
+				{
+					System.out.println(str.charAt(i)+""+str.charAt(j));
+				}
+			}
+		}
+	}
+}
+
+Q) Write a java program to check given string is Anagram or not?
+
+input:
+	str1= "silent";
+	str2= "listen";
+
+output:
+	It is a Anagram string 
+
+Explaination
+-------------
+silent : e i l n s t
+
+listen : e i l n s t  
+
+ex:
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str1= "silent";
+		String str2= "listen";
+
+		//convert string to char array
+		char[] carr1=str1.toCharArray();
+		char[] carr2=str2.toCharArray();
+
+		//sort the array
+		Arrays.sort(carr1); // e i l n s t 
+		Arrays.sort(carr2); // e i l n s t 
+
+		boolean flag=true;
+
+		for(int i=0;i<carr1.length && i<carr2.length; i++)
+		{
+			if(carr1[i] != carr2[i])
+			{
+				flag=false;
+				break;
+			}
+		}
+
+		if(flag==true)
+			System.out.println("It is a Anagram string");
+		else
+			System.out.println("It is not a Anagram string");
+	}
+}
+
+Q) Write a java program to display permutation of a given string?
+
+input:
+	ABC
+
+output:
+	ABC
+	ACB
+	BAC
+	BCA
+	CBA
+	CAB
+	
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ABC";
+
+		//caller method
+		permutation(str.toCharArray(),0);
+	}
+
+	//callie method 
+	public static void permutation(char[] arr,int fi)
+	{
+		if(fi==arr.length-1)
+		{
+			System.out.println(arr);
+			return;
+		}
+
+		for(int i=fi;i<arr.length;i++)
+		{
+			swapping(arr,fi,i);
+			permutation(arr,fi+1);
+			swapping(arr,fi,i);
+		}
+	}
+
+	//callie method 
+	public static void swapping(char[] arr,int fi,int i)
+	{
+			char temp=arr[fi];
+			arr[fi]=arr[i];
+			arr[i]=temp;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

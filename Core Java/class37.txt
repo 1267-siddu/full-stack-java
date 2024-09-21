@@ -1,0 +1,471 @@
+StringBuffer
+============
+If our content change frequently then it is never recommanded to go with String.
+
+To overcome this limitation Sun Micro System introduced StringBuffer.
+
+In StringBuffer, All the required changes will be done in a single object.
+
+It is mutable object.
+
+constructors
+-------------
+
+1) StringBuffer sb=new StringBuffer();
+---------------------------------------
+It will create empty StringBuffer object with default initial capacity of 16.
+
+If we reaches to maximum capacity then new capacity will be created with below formulea.
+
+ex:
+	capacity = current_capacity+1*2;
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer();
+
+		System.out.println(sb.capacity()); //16
+
+		sb.append("abcdefghijklmnop");
+
+		System.out.println(sb.capacity()); //16
+
+		sb.append("qr");
+		System.out.println(sb.capacity());//16+1*2=34
+
+	}
+}
+
+2) StringBuffer sb=new StringBuffer(int initialcapacity);
+-------------------------------------------------
+It will create StringBuffer object with specified initial capacity.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer(19);
+
+		System.out.println(sb.capacity()); //19
+
+	}
+}
+
+3)StringBuffer sb=new StringBuffer(String s);
+--------------------------------------------
+It will create StringBuffer object which is equivalent to String.
+
+Here capacity will be created with below formulea.
+
+ex:
+	capacity = s.length() + 16.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer("bhaskar");
+
+		System.out.println(sb.capacity()); //7+16=23
+
+	}
+}
+
+
+Q) Write a java program to display reverse of a string?
+
+input:
+	hello
+
+output:
+	olleh 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";
+
+		StringBuffer sb=new StringBuffer(str);
+
+		String rev=sb.reverse().toString();
+
+		System.out.println(rev);
+
+	}
+}
+
+
+Q) Write a java program to check given string is palindrome or not?
+
+input:
+	racar
+
+output:
+	
+	It is a palindrome string
+	
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="racar";
+
+		StringBuffer sb=new StringBuffer(str);
+
+		String rev=sb.reverse().toString();
+
+		if(str.equals(rev))
+			System.out.println("It is a palindrome string");
+		else
+			System.out.println("It is not a palindrome string");
+
+	}
+}
+
+
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	ABBCCCDDDD
+
+output:
+	A1B2C3D4
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ABBCCCDDDD";
+
+		StringBuffer sb=new StringBuffer();
+
+		int count=1;
+
+		for(int i=0;i<str.length();i++)
+		{
+			if(i<str.length()-1 &&  str.charAt(i) == str.charAt(i+1))
+			{
+				count++;
+			}
+			else
+			{
+				sb.append(str.charAt(i)).append(count);
+				count=1;
+			}
+		}
+		System.out.println(sb.toString());
+	}	
+}
+
+
+Q) Write a java program to multiply two arrays?
+
+input:
+	arr1 = 4 6 1  
+	arr2 = 1 5 
+
+output:
+	6915 (461*15)
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1={4,6,1};
+		int[] arr2={1,5};
+
+		//caller method
+		String str1=arrayToString(arr1);
+		String str2=arrayToString(arr2);
+
+		int a=Integer.parseInt(str1);
+		int b=Integer.parseInt(str2);
+
+		System.out.println(a*b);
+	}	
+	
+	//callie method 
+	public static String arrayToString(int[] arr)
+	{
+		StringBuffer sb=new StringBuffer();
+
+		for(int i:arr)
+		{
+			sb.append(i);
+		}
+
+		return sb.toString();
+	}
+}
+
+StringBuilder
+==============
+StringBuilder is exactly same as StringBuffer with following differences.
+
+StringBuffer					StringBuilder
+-----------					--------------
+Methods present in StringBuffer are		No method present in StringBuilder is  
+synchronized.					synchronized.
+
+At a time only one thread is allowed to 	Multiple threads are allowed to access 
+access StringBuffer.Hence we can achieve	StringBuilder object.Hence we can't achieve
+thread safety.					thread safety.
+
+Waiting time of a thread will increase		There is no waiting threads effectively performance 
+effectively performance is low.			is high.
+
+It is introduced in 1.0v.			It is introduced in 1.5v.
+	
+
+Note:
+------
+If our content not change fequently then we need to use String.
+
+If our content change frequently where thread safety is required then we need to use StringBuffer.
+
+If our content change frequently where thread safety is not required then we need to use StringBuilder.
+
+
+StringTokenizer
+================
+StringTokenizer is a class which is present in java.util package.
+
+It is used to tokenize the string irrespective of regular expression.
+
+We can create StringTokenizer object as follow.
+
+ex:
+	StringTokenizer st=new StringTokenizer(String s,RegularExpression regex);
+
+StringTokenizer class contains following five methods.
+ex:
+	public boolean hasMoreTokens()
+	public String nextToken()
+	public boolean hasMoreElements()
+	public Object nextElement()
+	public int countTokens()
+
+ex:1
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class");
+		System.out.println(st.countTokens());
+	
+	}
+}
+Note:
+	Default regular expression is space.
+
+
+ex:2
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+		System.out.println(st.countTokens());
+	
+	}
+}
+
+ex:3
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+		
+		while(st.hasMoreTokens())
+		{
+			String s=st.nextToken();
+			System.out.println(s);
+		}
+	
+	}
+}
+
+ex:4
+-----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+		
+		while(st.hasMoreElements())
+		{
+			String s=(String)st.nextElement();
+			System.out.println(s);
+		}
+	
+	}
+}
+
+ex:5
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("9,99,999",",");
+		
+		while(st.hasMoreElements())
+		{
+			String s=(String)st.nextElement();
+			System.out.println(s);
+		}
+	
+	}
+}
+
+
+Math 
+==========
+A Math class present in java.lang package.
+
+It is used to perform mathematical calculations.
+
+A Math class contains following methods.
+
+ex:
+	max()
+	min()
+	ceil()
+	floor()
+	power()
+	and etc.
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int max=Math.max(10,20);
+		System.out.println(max);
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int min=Math.min(10,20);
+		System.out.println(min);
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int result=(int)Math.pow(5,3);
+		System.out.println(result);
+	}
+}
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int result=(int)Math.sqrt(25);
+		System.out.println(result);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

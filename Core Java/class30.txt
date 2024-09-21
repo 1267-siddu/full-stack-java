@@ -1,0 +1,512 @@
+Polymorphism
+============
+Poly means many and morphism means forms.
+
+The ability to represent in different forms is called polymorphism.
+
+Diagram: class30.1
+
+The main objective of polymorphism is to provide flexibility.
+
+In java, polymorphism is divided into two types.
+
+1) Compile time polymorphism  / Static polymorphism / Early Binding 
+
+2) Runtime polymorphism / Dynamic polymorphism / Late Binding 
+
+1) Compile time polymorphism
+---------------------------
+A polymorphism which exhibits at compile time is called compile time polymorphism.
+ex:
+	Method overloading 
+	Method hiding 
+
+2) Runtime polymorphism
+-----------------------
+A polymorphism which exhibits at runtime is called runtime polymorphism.
+ex:
+	Method overriding 
+
+
+Summary Diagram: class30.2
+
+
+
+Constructor
+============
+A constructor is a special method which is used to initialized an object.
+ex:
+	Test t=new Test();
+
+Having same name as class name is called constructor.
+
+A constructor will execute when we create an object.
+
+A constructor does not allow any returntype.
+
+A constructor will accept following modifiers.
+ex:
+	default
+	public
+	private 
+	protected 
+
+In java, constructors are divided into two types.
+
+1) Userdefined constructor 
+
+2) Default constructor 
+
+
+1) Userdefined constructor 
+--------------------------
+A constructor which is created by the user based on the application requirements is called userdefined constructor.
+
+It is divided into two types.
+
+i) Zero-Argument constructor 
+
+ii) Parameterized constructor 
+
+i) Zero-Argument constructor 
+----------------------------
+Suppose if we are not passing any argument to userdefined constructor is called zero-argument constructor.
+
+ex:
+---
+class Test  
+{
+	Test()
+	{
+		System.out.println("0-arg const");
+	}
+
+	public static void main(String[] args) 
+	{
+		System.out.println("Main-Method");
+	}
+}
+o/p:
+	Main-Method 
+
+
+ex:
+---
+class Test  
+{
+	private Test()
+	{
+		System.out.println("0-arg const");
+	}
+
+	public static void main(String[] args) 
+	{
+		System.out.println("Main-Method");
+		Test t=new Test();
+	}
+}
+o/p:
+	Main-Method
+	0-arg const 
+
+ex:
+----
+class Test  
+{
+	protected Test()
+	{
+		System.out.println("0-arg const");
+	}
+
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		System.out.println("Main-Method");
+		Test t2=new Test();
+	}
+}
+
+ii) Parameterized constructor
+------------------------------
+Suppose if we pass atleast one argument to userdefined constructor then that constructor is called parameterized constructor.
+
+ex:
+---
+class Employee
+{
+	//instance variables
+	//current class variables 
+	private int empId;
+	private String empName;
+	private double empSal;
+
+	public Employee(int empId,String empName,double empSal)
+	{
+			this.empId=empId;
+			this.empName=empName;
+			this.empSal=empSal;
+	}
+
+	public void getEmployeeDetails()
+	{
+		System.out.println("Employee Id :"+empId);
+		System.out.println("Employee Name :"+empName);
+		System.out.println("Employee Salary :"+empSal);
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Employee e=new Employee(101,"Alan",1000d);
+		e.getEmployeeDetails();
+	}
+}
+
+
+2) Default constructor 
+----------------------
+It is a compiler generated constructor for every java program where we are not defining atleast zero argument constructor.
+
+To see the default constructor we need to use below command.
+
+ex:
+	javap  -c   Test 
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Hello Java World");
+	}
+}
+o/p:
+	javac  Test.java
+	
+	javap  -c  Test 
+
+
+Constructor overloading
+=======================
+Having same constructor name with different parameters in a single class is called constructor overloading.
+
+ex:
+
+class A 
+{
+	A()
+	{
+		System.out.println("0-arg const");
+	}
+	A(int i)
+	{
+		System.out.println("int-arg const");
+	}
+	A(double d)
+	{
+		System.out.println("double-arg const");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a1=new A();
+		A a2=new A(10);
+		A a3=new A(10.5d);
+	}
+}
+
+
+this keyword
+============
+A "this" keyword is a java keyword which is used to refer current class object reference.
+
+We can utilize this keyword in following ways.
+
+i) To refer current class variables
+
+ii) To refer current class methods 
+
+iii) To refer current class constructors 
+
+
+i) To refer current class variables
+------------------------------------
+class A 
+{
+	int i=10;
+	int j=20;
+
+	A(int i,int j)
+	{
+		System.out.println(i+" "+j); //  100  200
+		System.out.println(this.i+" "+this.j); // 10   20
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a=new A(100,200);
+	}
+}
+
+ii) To refer current class methods
+----------------------------------
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+		this.m2();
+	}
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+	}
+}
+
+iii) To refer current class constructors 
+-----------------------------------------
+class A 
+{
+	A()
+	{
+		System.out.println("0-arg const");
+	}
+	A(int i)
+	{
+		this();
+		System.out.println("int-arg const");
+	}
+	A(double d)
+	{
+		this(10);
+		System.out.println("double-arg const");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a=new A(10.5d);
+	}
+}
+
+
+
+
+super keyword
+============
+A "super" keyword is a java keyword which is used to refer super class object reference.
+
+We can utilize super keyword in following ways.
+
+i) To refer super class variables
+
+ii) To refer super class methods 
+
+iii) To refer super class constructors 
+
+
+i) To refer super class variables
+----------------------------------
+class A 
+{
+	int i=10;
+	int j=20;
+}
+class B extends A 
+{
+	int i=100;
+	int j=200;
+
+	B(int i,int j)
+	{
+		System.out.println(i+" "+j); // 1000   2000
+		System.out.println(super.i+" "+super.j); //10   20
+		System.out.println(this.i+" "+this.j); //100  200
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		B b=new B(1000,2000);
+	}
+}
+
+ii) To refer super class methods
+---------------------------------
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A 
+{
+	public void m2()
+	{
+		super.m1();
+		System.out.println("M2-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		B b=new B();
+		b.m2();
+	}
+}
+
+iii) To refer super class constructors 
+-------------------------------------
+class A 
+{
+	A()
+	{
+		System.out.println("A-constructor");
+	}
+}
+class B extends A 
+{
+	B()
+	{
+		super(); //optional 
+		System.out.println("B-constructor");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		B b=new B();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

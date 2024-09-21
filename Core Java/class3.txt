@@ -1,0 +1,214 @@
+Java
+======
+Version			:	Java 8
+
+JDK			:	JDK 1.8
+
+Creator			: 	James Gosling 
+
+Vendor			:	Oracle Corporation 
+
+Open source		:	Open source 
+
+website			:	www.oracle.com/in/java
+
+tutorials		:	www.javatpoint.com
+				www.tutorialspoint.com
+				www.javaus.com
+				www.dzone.com
+				and etc.
+
+download link		:
+https://drive.google.com/file/d/16fr2McV_Bex0NYlOdcVfC4k2gwUUNqzq/view?usp=drive_link
+
+
+Steps to setup java environmental variables
+===========================================
+step1:
+-------
+	Make sure JDK 1.8 installed successfully.
+
+step2:
+----
+	Copy java "lib" directory from "JAVA_HOME" folder.
+	ex:
+		C:\Program Files\Java\jdk1.8.0_181\lib
+step3:
+------
+	Paste java "lib" directory inside environmental variables.
+	ex:
+		right click to my pc --> properties --> advanced system settings -->
+		environmental variables --> 
+
+		user variables --> click to new button 
+		 
+		variable name : CLASSPATH	
+		variable value : C:\Program Files\Java\jdk1.8.0_181\lib; -->ok. 
+
+
+		system variables --> click to new button 
+
+		variable name : path  
+		variable value: C:\Program Files\Java\jdk1.8.0_181\bin; -->ok --> ok -->ok.
+
+
+step4:
+-----
+	Check the environmental setup done perfectly or not.
+	ex:
+		cmd> javap
+		cmd> java -version 
+
+
+Steps to develop first java application
+=========================================
+step1:
+-----
+	Make sure JDK 1.8 installed successfully.
+
+step2:
+-----
+	Make sure environmental setup done perfectly.
+
+step3:
+-----
+	create a "javaprog" folder in 'E' drive.
+
+step4:
+------
+	Open the notepad and develop simple Hello world program.
+	ex:
+		class Test
+		{
+			public static void main(String[] args)
+			{
+				System.out.println("Hello World");
+			}
+		}
+
+step5:
+------
+	Save above program with same name as class name inside javaprog folder.
+
+step6:
+-----
+	Open the command prompt from javaprog location.
+
+step7:
+-------
+	Compile the program by using below command.
+	ex:
+		javac   Test.java 
+				|
+				filename 
+
+step8:
+-----
+	Execute the program by using below command.
+	ex:
+		java   Test 
+			|		
+			classname 
+
+
+Q) What is difference between JDK, JRE and JVM?
+
+JDK
+====
+JDK stands for Java Development Kit.
+
+JDK is a installable software which consist Java Runtime Environment (JRE), Java Virtual Machine(JVM), compiler (javac), interpreter (java), an archiever (.jar) , document generator (javadoc) and other tools needed for java application development.
+
+
+JRE
+====
+JRE stands for Java Runtime Environment.
+JRE provides very good environment to run java applications only.
+
+JVM
+====
+JVM stands for Java Virtual Machine.
+It is an interpreter which is used to execute our program line by line procedure.
+
+
+Diagram: class3.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

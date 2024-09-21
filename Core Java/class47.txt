@@ -1,0 +1,925 @@
+Java 8 Features
+===============
+We have following important features in Java 8.
+
+1) java.time package 
+
+2) Functional interface 
+
+3) Lamda Expression 
+
+4) Default methods in interface
+
+5) Static methods in interface 
+
+6) Stream API 
+
+7) forEach() method 
+
+8) Method Reference(::)
+
+and etc
+
+Functional interface 
+====================
+An interface that contains only one abstract method is called functional interface.
+ex:
+	Runnable 	--->	run() 
+	Comparable	--->	compareTo() 
+	ActionListener	--->	actionPerformed() 
+	and etc.
+
+It can have any number of default methods and static methods.
+
+It is also known as SAM interface or Single Abstract Method interface.
+
+It is used to achieve functional programming.
+ex:
+	a = f1(){}
+
+	f1(f2(){})
+	{
+	}
+
+@FunctionalInterface annotation is used to declare functional interface and it is optional.
+
+ex:
+----
+@FunctionalInterface
+interface Shape
+{
+	public abstract void circle();
+}
+class ShapeImpl implements Shape
+{
+	public void circle()
+	{
+		System.out.println("circle-method");
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Shape s=new ShapeImpl();
+		s.circle();
+	}
+}
+
+
+ex:
+----
+@FunctionalInterface
+interface Shape
+{
+	public abstract void circle();
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Shape s=new Shape()
+		{
+			public void circle()
+			{
+				System.out.println("From circle method");
+			}
+		};
+		s.circle();
+	}
+}
+
+Lamda Expression
+================
+Lamda expression introduced in Java 8.
+
+We can use lamda expression when we have functional interface.
+
+Lamda expression is used to concise the code.
+
+Lamda expression consider as method not a class.
+
+The main objective of lamda expression is used to achieve functional programming.
+
+Lamda expression does not allow name, returntype and modifier.
+
+ex:
+----
+	Java method 
+	-----------
+	public void m1()
+	{
+		System.out.println("Hello World");
+	}
+
+	Lamda expression
+	---------------
+	()->
+	{
+		System.out.println("Hello World");
+	};
+
+
+ex:
+---
+@FunctionalInterface
+interface Shape
+{
+	public abstract void circle();
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Shape s=()->
+				{
+					System.out.println("Circle Method");
+				};
+
+		s.circle();
+	}
+}
+
+ex:
+----
+@FunctionalInterface
+interface Shape
+{
+	public abstract void circle(int r);
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Shape s=(int r)->
+				{
+					System.out.println("Circle Method "+r);
+				};
+
+		s.circle(50);
+	}
+}
+
+ex:
+---
+@FunctionalInterface
+interface Shape
+{
+	public abstract int circle(int r);
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Shape s=(int r)->
+				{
+					return r;
+				};
+
+		System.out.println(s.circle(50));
+	}
+}
+
+Default methods in interface
+=============================
+If any method is declared by using "default" keyword then it is called default method.
+
+It is a non-abstract method.
+
+It can be override.
+
+It is introduced in Java 8.
+
+ex:
+---
+interface Shape
+{
+	public abstract void circle();
+	
+	default void square()
+	{
+		System.out.println("square method");
+	}
+}
+class ShapeImpl implements Shape
+{
+	public void circle()
+	{
+		System.out.println("circle-method");
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Shape s=new ShapeImpl();
+		s.circle();
+		s.square();
+	}
+}
+
+ex:
+----
+interface Shape
+{
+	public abstract void circle();
+	
+	default void square()
+	{
+		System.out.println("square method");
+	}
+}
+class ShapeImpl implements Shape
+{
+	public void circle()
+	{
+		System.out.println("circle-method");
+	}
+	public void square()
+	{
+		System.out.println("Override square method");
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Shape s=new ShapeImpl();
+		s.circle();
+		s.square();
+	}
+}
+
+
+static  methods in interface
+=============================
+If any method is declared by using "static" keyword then it is called static method.
+
+It is a non-abstract method.
+
+It can't be override.
+
+It is introduced in Java 8.
+
+ex:
+--
+interface Shape
+{
+	static void square()
+	{
+		System.out.println("square method");
+	}
+}
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Shape.square();
+	}
+}
+
+How can we achieve multiple inheritance in java
+==============================================
+Using default methods of an interface we can achieve multiple inheritance in java.
+
+ex:
+---
+interface Right 
+{
+	default void m1()
+	{
+		System.out.println("Right-M1 Method");
+	}
+}
+interface Left
+{
+	default void m1()
+	{
+		System.out.println("Left-M1 Method");
+	}
+}
+class Middle implements Right,Left
+{
+	public void m1()
+	{
+		System.out.println("Middle-M1 Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Middle m=new Middle();
+		m.m1();
+	}
+}
+
+
+ex:
+---
+interface Right 
+{
+	default void m1()
+	{
+		System.out.println("Right-M1 Method");
+	}
+}
+interface Left
+{
+	default void m1()
+	{
+		System.out.println("Left-M1 Method");
+	}
+}
+class Middle implements Right,Left
+{
+	public void m1()
+	{
+		Right.super.m1();
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Middle m=new Middle();
+		m.m1();
+	}
+}
+
+ex:
+---
+interface Right 
+{
+	default void m1()
+	{
+		System.out.println("Right-M1 Method");
+	}
+}
+interface Left
+{
+	default void m1()
+	{
+		System.out.println("Left-M1 Method");
+	}
+}
+class Middle implements Right,Left
+{
+	public void m1()
+	{
+		Left.super.m1();
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Middle m=new Middle();
+		m.m1();
+	}
+}
+
+ex:
+----
+interface Right 
+{
+	default void m1()
+	{
+		System.out.println("Right-M1 Method");
+	}
+}
+interface Left
+{
+	default void m1()
+	{
+		System.out.println("Left-M1 Method");
+	}
+}
+class Middle implements Right,Left
+{
+	public void m1()
+	{
+		Right.super.m1();
+		Left.super.m1();
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Middle m=new Middle();
+		m.m1();
+	}
+}
+
+
+Stream API
+===========
+Stream API introduced in Java 8.
+
+It is used to process the objects from Collections.
+
+A Stream is an interface which is present in java.util.stream package.
+
+It is used to perform bulk operations on Collections.
+
+We can create Stream object as follow.
+ex:
+	Stream s=new Stream();
+
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list=Arrays.asList(7,3,2,1,9,5,4);
+
+		//even numbers
+		List<Integer> even = list.stream().filter(i->i%2==0).collect(Collectors.toList());
+	
+		System.out.println(even);
+	}
+}
+
+ex:
+----
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list=Arrays.asList(7,3,2,1,9,5,4);
+
+		//odd numbers
+		List<Integer> odd = list.stream().filter(i->i%2!=0).collect(Collectors.toList());
+	
+		System.out.println(odd);
+	}
+}
+
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list=Arrays.asList(7,3,2,1,9,5,4);
+
+
+		long count = list.stream().filter(i->i%2!=0).count();
+	
+		System.out.println(count);
+	}
+}
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list=Arrays.asList(7,3,2,1,9,5,4);
+
+
+		List<Integer> newList= list.stream().map(i->i+10).collect(Collectors.toList());
+	
+		System.out.println(newList);
+	}
+}
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list=Arrays.asList(7,3,2,1,9,5,4);
+
+
+		List<Integer> newList= list.stream().sorted().collect(Collectors.toList());
+	
+		System.out.println(newList);
+	}
+}
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list=Arrays.asList(7,3,2,1,9,5,4);
+
+
+		List<Integer> newList= list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+	
+		System.out.println(newList);
+	}
+}
+
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list=Arrays.asList(7,3,2,1,9,5,4);
+
+
+		long min= list.stream().min((i1,i2)->i1.compareTo(i2)).get();
+	
+		System.out.println(min);
+	}
+}
+
+ex:
+----
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list=Arrays.asList(7,3,2,1,9,5,4);
+
+
+		long max= list.stream().max((i1,i2)->i1.compareTo(i2)).get();
+	
+		System.out.println(max);
+	}
+}
+
+forEach() method
+=================
+A forEach() method introduced in Java 8.
+
+It is used to iterate the objects from Collections.
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list=Arrays.asList(7,3,2,1,9,5,4);
+
+		list.forEach(element -> System.out.print(element+" "));
+
+	}
+}
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Map<Integer,Integer> map=new LinkedHashMap<Integer,Integer>();
+		map.put(1,100);
+		map.put(3,300);
+		map.put(2,200);
+
+		map.forEach((key,value)-> System.out.println(key+" = "+value));
+	}
+}
+
+Method Reference
+================
+It is introduced in Java 8.
+
+Method references are special type of lamda expressions.
+
+It is often used to create a simple lamda expression which referencing to existing methods.
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list=Arrays.asList(7,3,2,1,9,5,4);
+
+		list.forEach(System.out::println);
+	}
+}
+
+ex:
+----
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Map<Integer,Integer> map=new LinkedHashMap<Integer,Integer>();
+		map.put(1,100);
+		map.put(3,300);
+		map.put(2,200);
+
+		map.forEach(Test::entrySet);
+	}
+
+	private static void entrySet(Integer key,Integer value)
+	{
+		System.out.println(key+" = "+value);
+	}
+}
+
+Interview Question
+===================
+Q) Write a java program to display employees records in sorting order of employee id?
+
+import java.util.*;
+import java.util.stream.*;
+class Employee
+{
+	private int empId;
+	private String empName;
+	private double empSal;
+
+	Employee(int empId,String empName,double empSal)
+	{
+		this.empId=empId;
+		this.empName=empName;
+		this.empSal=empSal;
+	}
+
+	public int getEmpId()
+	{
+		return empId;
+	}
+	public String getEmpName()
+	{
+		return empName;
+	}
+	public double getEmpSal()
+	{
+		return empSal;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Employee> list=new ArrayList<Employee>();
+		list.add(new Employee(103,"Alan",3000));
+		list.add(new Employee(101,"Jose",1000));
+		list.add(new Employee(104,"Nelson",4000));
+		list.add(new Employee(102,"Lara",2000));
+
+		List<Employee> newList=list.stream().sorted(Comparator.comparingInt(Employee::getEmpId)).collect(Collectors.toList());
+
+		newList.forEach(employee -> System.out.println(employee.getEmpId()+" "+employee.getEmpName()+" "+employee.getEmpSal()));
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+Q) Write a java program to display employees records in sorting order of employee id?
+
+import java.util.*;
+import java.util.stream.*;
+class Employee
+{
+	private int empId;
+	private String empName;
+	private double empSal;
+
+	Employee(int empId,String empName,double empSal)
+	{
+		this.empId=empId;
+		this.empName=empName;
+		this.empSal=empSal;
+	}
+
+	public int getEmpId()
+	{
+		return empId;
+	}
+	public String getEmpName()
+	{
+		return empName;
+	}
+	public double getEmpSal()
+	{
+		return empSal;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Employee> list=new ArrayList<Employee>();
+		list.add(new Employee(103,"Alan",3000));
+		list.add(new Employee(101,"Jose",1000));
+		list.add(new Employee(104,"Nelson",4000));
+		list.add(new Employee(102,"Lara",2000));
+
+		List<Employee> newList=list.stream().sorted(Comparator.comparing(Employee::getEmpName)).collect(Collectors.toList());
+
+		newList.forEach(employee -> System.out.println(employee.getEmpId()+" "+employee.getEmpName()+" "+employee.getEmpSal()));
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

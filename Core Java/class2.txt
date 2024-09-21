@@ -1,0 +1,261 @@
+Naming Conventions in java
+==========================
+In java, uppercase letters will consider as different and lowercase letters will consider as different that why we consider java is a case sensitive programming language.
+
+As java is a case sensitive we must and should follow naming conventions for following things.
+
+ex:
+	classes
+	interfaces
+	variables
+	methods 
+	keywords
+	packages
+	and 
+	constants 
+
+classes
+---------
+In java, a class name must and should starts with uppercase letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	predefined classes		Userdefined classes
+	------------------		--------------------
+	System				Test
+	File				DemoApp
+	FileWriter 			ExampleApp
+	BufferedReader			TestApp
+	ArrayList 			ReverseNumber
+	and etc.			and etc.
+
+interfaces
+----------
+In java ,an interface name must and should starts with capital letter and if it is having multiple words then each inner word must starts with initcap. 
+
+ex:
+	predefined interfaces		userdefined interfaces
+	----------------------		----------------------
+	Runnable 			ITest	
+	Serializable 			IDemoApp
+	Iterator			IExampleApp
+	ListIterator 			IReverseNumber
+	Enumeration 			and etc.
+	and etc.
+
+variables
+---------
+In java, a variable name must and should starts with lowercase letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	predefined variables		userdefined variables
+	--------------------		---------------------
+	out				i
+	in				x
+	err				empId
+	length				studName
+	and etc.			deptNo 
+					and etc.
+
+methods
+--------
+In java , a method name must and should starts with lowercase letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	predefined methods		userdefined methods
+	------------------		------------------
+	getClass()			getDetails()	
+	hashCode()			calculatBillAmt()
+	toString()			getInfo()
+	setName()			setStudentInfo()
+	getPriority()			fetchDetails()
+	and etc.			and etc.
+
+keywords
+----------
+In java, all keywords we need to declare under lowercase letters only.
+
+ex:
+	predefined keywords
+	-------------------
+	if, else, public, static , void , for, do , while, switch and etc.
+
+packages
+--------
+In java, all packages we need to declare under lowercase letters only.
+
+ex:
+	predefined packages		userdefined packages
+	-----------------		--------------------
+	java.lang (default pkg)		ihub
+	java.io				com.ihub.www
+	java.util			google	
+	java.util.stream		com.google.www
+	java.text			and etc.
+	java.time
+	java.sql
+	javax.servlet 
+	and etc.
+
+constants
+---------
+In java, all constants we need to write under uppercase letters only.
+
+ex:
+	predefined constants		userdefined constants
+	--------------------		---------------------
+	MAX_PRIORITY			N=10;
+	MIN_PRIORITY			LIMIT=10;
+	NORM_PRIORITY
+	MAX_VALUE
+	MIN_VALUE
+	and etc.
+
+Assignment
+===========
+1) class	:	QualityThought 	
+
+2) interface	:	IQualityThought 
+
+3) variable 	: 	qualityThought
+
+4) method 	:	qualityThought()
+
+5) package	:	com.qualitythought.www
+ 
+6) constant 	:	QUALITY_THOUGHT
+
+
+
+Interview Questions
+===================
+
+Q) Which package is a default package in java?
+
+	java.lang package
+
+
+Q) What is package?
+
+	A package is a collection of classes and interfaces.
+
+
+Q) What is Java?
+
+	It is a object oriented, platform independent, case sensitive, strongly typed checking,
+	high level , open source programming language developed by James Gosling in the 
+	year of 1995.
+
+
+Q) Which component is responsible to destroy objects in java?
+
+	Garbage Collector
+
+
+Q) In how many ways we can call garbage collector?
+	
+	There are two ways to call garbage collector in java.
+
+	1) System.gc()
+	2) Runtime.getRuntime().gc();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

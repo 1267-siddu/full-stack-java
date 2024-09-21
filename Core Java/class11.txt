@@ -1,0 +1,154 @@
+System.out.println()
+=====================
+It is a output statement in java.
+
+Whenever we want to display variables , data or userdefined messages then we need to use output statement.
+
+syntax:
+
+		static variable 
+		|
+	System.out.println();
+	|		|
+	predefined 	predefined method 
+	final 
+	class
+
+Diagram: class11.1
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println("stmt1");
+		System.out.print("stmt2");
+		System.out.printf("stmt3");	
+	}
+}
+
+Various ways to display the data
+--------------------------------
+1)
+	System.out.println("Hello World");
+
+2) 
+	int i=10;
+	System.out.println(i);
+	System.out.println("The value is ="+i);
+
+3)
+	int i=10,j=20;
+	System.out.println(i+" "+j);
+	System.out.println(i+" and "+j);
+
+4) 
+	int i=10,j=20,k=30;
+	System.out.println(i+" "+j+" "+k);
+
+
+
+Q) What is the difference between System.out.println() and System.err.println() ? 
+
+System.out.println()
+--------------------
+It is used to redirect our output to console.
+ex:
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Hello World");	
+	}
+}
+o/p:
+	javac  Test.java
+	java   Test 
+
+System.err.println()
+--------------------
+It is used to redirect our output to console as well as to a physical file.
+
+ex:
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.err.println("Hello World");	
+	}
+}
+
+o/p:
+	javac   Test.java
+	java    Test 2>abc.txt 
+
+Fully Qualified Name
+====================
+Full qualified name means we will declare a class or interface along with package name.
+
+Full qualified name is used to improve the readability of our code.
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		java.util.Date d=new java.util.Date();
+		System.out.println(d); 
+	}
+}
+
+To see the list of methods present in Date class we need to javap tool.
+ex:
+	cmd> javap  java.util.Date
+
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		java.util.Date date=new java.util.Date();
+		int h=date.getHours();
+		int m=date.getMinutes();
+		int s=date.getSeconds();
+		System.out.println(h+":"+m+":"+s);	
+	}
+}
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		java.util.Date date=new java.util.Date();
+		int d=date.getDate();
+		int m=date.getMonth()+1;
+		date.setYear(2024);
+		int y=date.getYear();
+		System.out.println(d+"/"+m+"/"+y);	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

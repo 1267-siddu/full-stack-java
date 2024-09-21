@@ -1,0 +1,240 @@
+Types of variables
+==================
+A name which is given to a memory location is called variable.
+
+Purpose of variable is used to store the data.
+
+In java, we have two types of variables.
+
+1) Primitive variables 
+---------------------
+	It is used to represent primitive values.
+
+2) Reference variables 
+----------------------
+	It is used to represent object reference.
+	ex:
+		Student s=new Student
+			|
+		reference variable 
+
+Based on the position and execution these variables are divided into three types.
+
+1) Instance variable / Non-Static variable 
+
+2) Static variable / Global variable 
+
+3) Local variable / Temperory variable / Automatic variable 
+
+1) Instance variable
+--------------------
+A value of a variable which is varied(changes) from object to object is called instance variable.
+
+Instance variable will be created at the time object creation and it will destroy at the time of object destruction.Hence scope of instance variable is same as scope of an object.
+
+Instance variable will store in heap area as a part of an object.
+
+Instance variable must and should declare immediately after the class but not inside methods,blocks and constructors.
+
+Instance variable we can access directly from instance area but we can't access directly from static area.
+
+To access instance variable from static area we need to create object reference.
+
+ex:1
+-----
+class  Test
+{
+	//instance variable
+	int i=10;
+
+	public static void main(String[] args)
+	{
+		System.out.println(i); 
+	}
+}
+o/p:
+	C.T.E : non-static variable i cannot be referenced from a static context
+
+
+ex:2
+----
+class  Test
+{
+	//instance variable
+	int i=10;
+
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		System.out.println(t.i);//10
+	}
+}
+
+Note:
+-----
+If we won't initialize any value to instance variable then JVM will initialized default values.
+
+ex:3
+----
+class  Test
+{
+	//instance variable
+	boolean b;
+
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		System.out.println(t.b);//false 	
+	}
+}
+
+ex:4
+-----
+class  Test
+{
+	//instance variable
+	int i=10;
+
+	public static void main(String[] args)
+	{
+		Test t1=new Test();
+		Test t2=new Test();
+		System.out.println(t1.i);//10
+		System.out.println(t2.i);//10
+		
+		t1.i=20;
+		System.out.println(t1.i);//20
+		System.out.println(t2.i);//10
+			
+	}
+}
+
+ex:5
+----
+class  Test
+{
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		t.m1();			
+	}
+
+	//non-static method
+	public void m1()
+	{
+		System.out.println("instance method");
+	}
+			
+}
+
+Interview Question
+==================
+Q) Jack and John are living in a small town.Both are studing in a same school in a same class.
+One day while going to school they saw one poor person(beggar). Jack and John both they decided to help that poor guy. Jack gave Rs. 100 from his pocket and John gave Rs. 200 from his side.Write a java console to display how much money they gave to beggar?
+
+ex:
+
+class  Test
+{
+	//instance variables
+	int a=100;
+	int b=200;
+	
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		t.sum();		
+	}
+
+	//non-static method
+	public void sum()
+	{
+		int c=a+b;
+		System.out.println(c);
+	}
+				
+}
+
+Q) Jack and John are living in a small town.Both are studing in a same school in a same class.
+One day while going to exam Jack gave 10 rupees to helpless guy.Due his good deed he secured good marks in the subject.He told the same story to John how he secured highest marks in that subject.No John also decided to give double then Jack contribution to helpless guy.Now a java console to calculate john amount?
+ 
+class  Test
+{
+	//instance variable
+	int money=10;
+	
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		t.find();		
+	}
+
+	//non-static method
+	public void find()
+	{
+		int total=money*2;
+		System.out.println(total);
+	}
+				
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,594 @@
+Q) Write a java program to display reverse of a given number?
+
+Input:
+	123
+
+Output:
+	321
+
+ex:
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+
+		System.out.println(rev);
+	}
+}
+
+Q) Write a java program to check given number is palindrome or not?
+
+Input:
+	121
+
+Output:
+	It is a palindrome number
+
+ex:
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+
+		int temp=n;
+
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+
+		if(temp==rev)
+			System.out.println("It is a palindrome number");
+		else
+			System.out.println("It is not a palindrome number");
+	}
+}
+
+iii) for loop
+==============
+It will execute the source code untill our condition is true.
+
+syntax:
+------
+	for(initialization;condition;Increment/Decrement)
+	{
+		-
+		- //code to be execute
+		-
+	}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			System.out.print(i+" ");//1 2 3 4 5 6 7 8 9 10
+		}
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			System.out.print(i+" "); //infinite 1 
+			i--;
+		}
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i%2==0)
+			{
+				System.out.print(i+" "); // 2 4 6 8 10
+			}
+		}
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int cnt=0;
+
+		for(int i=1;i<=10;i++)
+		{
+			if(i%2!=0) 
+			{
+				cnt++;
+			}
+		}
+		System.out.println(cnt);//5
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=20;i++)
+		{
+			if(i%2==0) 
+			{
+				System.out.print(i+" "); //2  6  10  14  18  
+
+				i=i+2;
+			}
+		}
+	}
+}
+
+Q) Write a java program to check given number is prime or not?
+
+prime numbers : 
+
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.
+
+ex:
+--
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+
+		boolean flag=true;
+		for(int i=2;i<=n/2;i++)
+		{
+			if(n%i==0)
+			{
+				flag=false;
+				break;
+			}
+		}
+		if(flag==true)
+			System.out.println("It is prime number");
+		else
+			System.out.println("It is not prime number");
+	}
+}
+
+Q) Write a java program to display list of prime numbers from 1 to 100?
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int n=2;n<=100;n++)
+		{
+			boolean flag=true;
+			for(int i=2;i<=n/2;i++)
+			{
+				if(n%i==0)
+				{
+					flag=false;
+					break;
+				}
+			}
+			if(flag==true)
+				System.out.print(n+" ");
+		}
+	}
+}
+
+Q) Write a java program to find out given number is perfect or not?
+
+Input:
+	6 
+Output:
+	It is a perfect number 
+
+ex:
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the number :");
+		int n=sc.nextInt(); //6
+
+		int sum=0;
+		for(int i=1;i<n;i++)
+		{
+			if(n%i==0)
+			{
+				sum=sum+i;
+			}
+		}
+		if(n==sum)
+			System.out.println("It is a perfect number");
+		else
+			System.out.println("It is not a perfect number");
+	}
+}
+
+Q) Write a java program to display fibonacci series of a given number ?
+
+fibonacci series : 0 1 1 2 3 5 8 
+
+ex:
+---
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the number :");
+		int n=sc.nextInt(); //5
+
+		int a=0,b=1,c;
+
+		System.out.print(a+" "+b+" ");
+
+		for(int i=2;i<=n;i++)
+		{
+			c=a+b;	
+			System.out.print(c+" ");
+			a=b;
+			b=c;
+		}	
+	}
+}
+
+
+Loop Patterns
+=============
+1)
+1 1 1 1 
+2 2 2 2 
+3 3 3 3 
+4 4 4 4 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+2)
+1 2 3 4
+1 2 3 4 
+1 2 3 4 
+1 2 3 4 
+
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+3)
+* * * *
+* * * *
+* * * *
+* * * *
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+4) 
+4 4 4 4 
+3 3 3 3 
+2 2 2 2 
+1 1 1 1 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+5)
+
+A A A A 
+B B B B'
+C C C C 
+D D D D 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(char i='A';i<='D';i++)
+		{
+			//cols
+			for(char j='A';j<='D';j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+6)
+D D D D 
+C C C C 
+B B B B
+A A A A 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(char i='D';i>='A';i--)
+		{
+			//cols
+			for(char j='A';j<='D';j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

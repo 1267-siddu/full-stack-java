@@ -1,0 +1,197 @@
+Internal Architecture of JVM
+=============================
+Diagram: class4.1
+
+Java program contains java code instructions.Once if we compile java code instructions converts to byte code instructions in .class file.
+
+JVM will invoke one module called classloader/sub system to load all the byte code instructions from .class file. The work of classloader is to check these byte code instructions are proper or not. If they are not proper then it will refuse the execution.If they are proper then it will allocate the memory. 
+
+We have five types of memories.
+
+1) Method area 
+--------------
+Method area contains code of a class, code of a variable and code of a method.
+
+2) Heap 
+-------
+Our object creations will store in heap area.
+
+Note:
+-----
+Whenever jvm loads byte code instructions from .class file. It will create method area and heap area automatically.
+
+
+3) Java Stack 
+-------------
+Java methods will store in method area but to execute those methods we required some memory that memory will be allocated in java stack.
+
+
+4) PC Register 
+----------------
+IT is a program counter register which is used to track the address of an instructions.
+
+5) Native Method Stack
+-----------------------
+Java methods will execute in method area.Similarly native methods will execute in native method stack. But we can't execute native method directly.We required a program called Native method interface.
+
+Execution Engine
+----------------
+Executiong engine contains interpreter and jit compiler.
+
+Whenever jvm loads byte code instructions from .class file , it will uses interpreter and jit compile simultenously.
+
+Interpreter is used to execute our program line by line procedure.
+
+JIT compiler is used to increase the execution speed of our program.
+
+
+
+Interview Questions
+====================
+
+Q) A .class file contains what code ___ ?
+
+    byte code instructions 
+
+
+
+Q) How many memories are there in java?
+
+	We have five memories in java.
+	1) Method area 
+	2) Heap 
+	3) Java Stack 
+	4) PC Register 
+	5) Native method stack 
+
+
+Q) What is JIT compiler?
+
+JIT compiler is a part of a JVM which is used to increase the execution speed of our program.
+
+
+
+Q) What is native method in java?
+
+A method which is developed by using some other language is called native method.
+
+
+
+Q) How many classloaders are there in java?
+
+We have three predefined classloaders in java.
+
+1) Bootstrap classloader 
+--------------------
+	It is used to load rt.jar file.
+	ex:
+		C:\Program Files\Java\jdk1.8.0_181\jre\lib	
+
+2) Extension classloader 
+-----------------------
+	It is used to load all the jar files present in ext folder.
+	ex:
+		C:\Program Files\Java\jre1.8.0_181\lib\ext
+
+3) Application/System classloader 
+----------------------------
+	It is used to load the .class file from CLASSPATH.
+
+
+History of Java
+===============
+In 1990, Sun Micro System company took one project to develop a software called consumer electronic device which can be controlled by a remote like setup box.That time project was called Stealth project and later it was renamed to Green project.
+
+James Gosling, Mike Sheradin and Patrick Naughton were there to develop the project.They have met in a place called Aspan/Colarado to start the work with Graphic System. James Gosling decided to use C and C++ languages to develop the project. But the problem what they have faced is C and C++ languages are system dependent. Then james Gosling decided why don't we create our own programming language which is system independent.
+
+In 1991, they have developed one programming language called an OAK. OAK means strength, itself is a coffee seed name and it is a national tree for many countries like Germany , France , USA and etc.
+
+Later in 1995, they have renamed OAK To JAVA. JAVA is a island of an indonasia where first coffee of seed was produced.During the development of project they were consuming lot of coffee's.Hence the symbol of java is a cup of cofee with saucer.
+
+
+
+Interview Questions
+====================
+
+Q) Who is the creator of java?
+
+	James Gosling 
+
+
+Q) In which year java was developed?
+
+	In 1995.
+
+
+Q) Java originally known as __? 
+
+	OAK 
+
+
+Q) Is java platform dependent or independent?
+
+	platform independent 
+
+
+Q) Is JVM platform dependent or independent?
+
+	platform dependent 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
